@@ -3,17 +3,23 @@ using namespace std;
 
 
 
-bool check(int x) {
-	bool result;
-	(x < 0) ? result = false : result = true;
+int sum(int x, int y) {
+	int result = 0;
+	if (x > y) {
+		int temp = x;
+		x = y;
+		y = temp;
+	}
+	for (int i = x+1; i < y; i++) {
+		result += i;
+	}
 	return result;
 }
 int main() {
-	int number; cout << "Enter a number:"; cin >> number;
-	if (number == 0) {
-		cout << "It's zero" << endl;
-		return 0;
-	}
-	(check(number) == 1) ? cout << "True" << endl : cout << "False" << endl;
+	int first_number; cout << "Enter an first number:"; cin >> first_number;
+	int second_number; cout << "Enter an second number:"; cin >> second_number;
+
+
+	cout << sum(first_number, second_number) << endl;
 	return 0;
 }
