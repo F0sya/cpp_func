@@ -3,17 +3,26 @@ using namespace std;
 
 
 
-bool check(int x) {
-	bool result;
-	(x < 0) ? result = false : result = true;
-	return result;
+double power(int x, int y) {
+	double multiplier = 1.0;
+	bool check = (y < 0);
+
+	if (check) {
+		y = -y;
+	}
+
+	for (int i = 0; i < y; i++) {
+		multiplier *= x;
+	}
+	if (check) {
+		multiplier = 1.0 / multiplier;
+	}
+	return multiplier;
 }
 int main() {
 	int number; cout << "Enter a number:"; cin >> number;
-	if (number == 0) {
-		cout << "It's zero" << endl;
-		return 0;
-	}
-	(check(number) == 1) ? cout << "True" << endl : cout << "False" << endl;
+	int pow; cout << "Enter a power:"; cin >> pow;
+
+	cout << power(number,pow) << endl;
 	return 0;
 }
